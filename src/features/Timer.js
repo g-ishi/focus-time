@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Vibration } from "react-native";
 import { ProgressBar, Colors } from "react-native-paper";
+import { useKeepAwake } from "expo-keep-awake";
 import { Countdown } from "../components/Countdown";
 import { RoundedButton } from "../components/RoundedButton";
 import { spacing } from "../utils/sizes";
@@ -16,6 +17,8 @@ const PATTERN = [
 ];
 
 export const Timer = ({ focusSubject, onTimerEnd, clearSubject }) => {
+  useKeepAwake();
+
   const [isStarted, setIsStarted] = useState(false);
   const [progress, setProgress] = useState(1);
   const [minites, setMinites] = useState(0.1);
@@ -31,6 +34,7 @@ export const Timer = ({ focusSubject, onTimerEnd, clearSubject }) => {
             Vibration.vibrate(PATTERN);
             setIsStarted(false);
             setProgress(1);
+            onTimerEnd(focusSubject);
             reset();
           }}
         />
@@ -108,7 +112,7 @@ const styles = StyleSheet.create({
   },
   timing: {
     flex: 0.2,
-    backgroundColor: "green",
+    // backgroundColor: "green",
   },
   cancelButton: {
     flex: 0.2,

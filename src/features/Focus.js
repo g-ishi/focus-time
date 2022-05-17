@@ -6,7 +6,7 @@ import { RoundedButton } from "../components/RoundedButton";
 export const Focus = ({ addSubject }) => {
   const [subject, setSubject] = useState(null);
   return (
-    <View style={styles.container}>
+    // <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.textInputContainer}
@@ -22,24 +22,25 @@ export const Focus = ({ addSubject }) => {
           />
         </View>
       </View>
-    </View>
+    // </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
-  button: {
-    justifyContent: "center",
-  },
-  textInputContainer: {
-    flex: 0.9,
-    marginRight: 10,
+    // flex: 1,
   },
   inputContainer: {
     padding: 10,
     // justifyContent: "top",
     flexDirection: "row",
+  },
+  textInputContainer: {
+    flex: 0.9,
+    marginRight: 10,
+  },
+  button: {
+    // flex: 0.1,
+    justifyContent: "center",
   },
 });
